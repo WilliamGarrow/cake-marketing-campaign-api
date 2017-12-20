@@ -32,3 +32,28 @@ The verbose option echoes the current status as the API is running with start an
 ```php
 $debug = true;
 ```
+
+### API Usage
+
+<Call the api file with command line parameters:>
+
+
+#### Process
+This application will generate a performance summary report from the Cake CampaignSummary API and the SubIDSummary API.
+
+```php
+    'Campaign ID',
+    'Source Affiliate ID',
+    'Source Affiliate Name',
+    'Sub ID',
+    'Site Offer Name',
+    'Site Offer ID',
+    'Clicks',
+    'Click Thru Percentage',
+    'Macro Event Conversions',
+    'Paid Macro Event Conversions',
+    'Cost',
+    'Average Cost',
+    'Source Affiliate Manager ID',
+    'Brand Advertiser Manager ID',
+```
