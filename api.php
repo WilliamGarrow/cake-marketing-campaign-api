@@ -31,4 +31,34 @@ $Client = new Client(['base_uri' => '<YOUR BASE URI>']);
 if ($debug) echo "Fetching Campaigns" . PHP_EOL;
 $Campaigns = getCampaigns($Client, $startDate, $endDate);
 // $Campaigns = array_slice((array)$Campaigns, 0, 100);
-if ($debug) echo 'Processing ' . count($Campaigns). ' Campaigns' . PHP_EOL;
+if ($debug) echo 'Processing ' . count($Campaigns) . ' Campaigns' . PHP_EOL;
+
+
+// https://support.getcake.com/support/solutions/articles/13000003854-reports-campaignsummary-api-version-5
+$fname = "campaignData-{$startDate}.csv";
+$filename = "{$dataDirectory}/{$fname}";
+$csvHandle = fopen($filename, 'w');
+$headerFields = [
+    'Campaign ID',
+    'Source Affiliate ID',
+    'Source Affiliate Name',
+    'Sub ID',
+    'Site Offer Name',
+    'Site Offer ID',
+    'Clicks',
+    'Click Thru Percentage',
+    'Macro Event Conversions',
+    'Paid Macro Event Conversions',
+    'Cost',
+    'Average Cost',
+    'Source Affiliate Manager ID',
+    'Brand Advertiser Manager ID',
+];
+
+fputcsv($csvHandle, $headerFields);
+
+if ($debug) echo "Adorning SubIdSummary data to Campaigns" . PHP_EOL;
+$iStart = microtime(true);
+
+
+// TODO: Sub Id Summary Request Generator
