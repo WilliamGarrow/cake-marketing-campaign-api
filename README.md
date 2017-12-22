@@ -3,14 +3,28 @@ CAKE Marketing Campaign Summary API and SubID Summary API performance on a campa
 
 ```php
 TODO: Pull the campaign summary API 
+Example GET Request:
+http://demo.cakemarketing.com/api/5/reports.asmx/CampaignSummary?
+api_key=rYwtD48irQ0CiHRiuaB9abASO3e8O7GS&start_date=01-01-2016%20&
+end_date=01-31-2016%20&campaign_id=0%20&source_affiliate_id=1111667%20&
+subid_id=%20&site_offer_id=0%20&source_affiliate_tag_id=0%20&
+site_offer_tag_id=0%20&source_affiliate_manager_id=0%20&
+brand_advertiser_manager_id=0%20&event_id=0%20&event_type=macro_event_conversions
+
+
 TODO: Pull the SubID Summary API 
+Example GET Request:
+http://demo.cakemarketing.com/api/1/reports.asmx/SubIDSummary?
+api_key=dNJFmId9rI&start_date=2015-08-01&end_date=2015-09-01&
+source_affiliate_id=1111667&site_offer_id=0&event_id=0&
+revenue_filter=conversions_and_events
 ```
+
 Pull the campaign summary API which will provide the affiliate ID and offer ID for each campaign.
 Documentation: https://support.getcake.com/solution/articles/13000003854-reports-campaignsummary-api-version-5
 
 Next, pull the SubID Summary API to get the specific SubID performance on a campaign-by-campaign basis.
 Documentation: https://support.getcake.com/solution/articles/5000688590-reports-subidsummary-api-version-1
-
 
 
 #### Configuration
@@ -46,6 +60,7 @@ This application will generate a performance summary report from the Cake Campai
     'Source Affiliate ID',
     'Source Affiliate Name',
     'Sub ID',
+    'Sub ID Name',
     'Site Offer Name',
     'Site Offer ID',
     'Clicks',
@@ -54,6 +69,6 @@ This application will generate a performance summary report from the Cake Campai
     'Paid Macro Event Conversions',
     'Cost',
     'Average Cost',
-    'Source Affiliate Manager ID',
-    'Brand Advertiser Manager ID',
+    'Source Affiliate Manager ID'
+    ...
 ```
