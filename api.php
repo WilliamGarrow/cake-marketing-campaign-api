@@ -183,3 +183,24 @@ $Pool = new Pool($Client, $requestGenerator($Campaigns, $startDate, $endDate), [
 
 $promise = $Pool->promise();
 $promise->wait();
+
+$iEnd = microtime(true);
+if ($debug) echo "Completed Adorning in " . ($iEnd - $iStart) . ' seconds' . PHP_EOL;
+
+fclose($csvHandle);
+
+// Email csv - settings in config file
+mail(
+    $mailTo,
+    $subject,
+    "Your Data is ready for downloading at: {$download_loc}/{$fname}",
+    "From: {$mailFrom}"
+);
+
+$timeEnd = microtime(true);
+if ($debug) echo 'Completed in ' . ($timeEnd - $timeStart) . ' seconds' . PHP_EOL;
+
+
+/*
+ * TODO: Get all the Campaigns
+ */
