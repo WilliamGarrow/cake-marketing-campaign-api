@@ -61,4 +61,20 @@ if ($debug) echo "Adorning SubIdSummary data to Campaigns" . PHP_EOL;
 $iStart = microtime(true);
 
 
-// TODO: Sub Id Summary Request Generator
+// Sub Id Summary Request Generator
+$requestGenerator = function ($Campaigns, $startDate, $endDate) use ($debug) {
+
+    foreach ($Campaigns as $index => $Campaign) {
+        $uri = '<YOUR SubIDSummary URI>' . http_build_query([
+                'api_key' => API_KEY,
+                'start_date' => $startDate,
+                'end_date' => $endDate,
+                'source_affiliate_id' => $Campaign->SourceAffiliateID,
+                'site_offer_id' => $Campaign->SiteOfferID,
+                'event_id' => 0,
+            ]);
+
+        if ($debug) echo "API call for {$index}::{$Campaign->SourceAffiliateID}::{$Campaign->SiteOfferID}" . PHP_EOL;
+        yield new Request('GET', $uri);
+    }
+};
