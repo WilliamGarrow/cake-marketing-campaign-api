@@ -2,7 +2,7 @@
 
 date_default_timezone_set('America/New_York');
 
-define('API_KEY', '<APIKEY>');
+define('API_KEY', '<YOUR API KEY>');
 define('CONCURRENT_REQUESTS', 40);
 
 include __DIR__ . '/config.php';
@@ -204,3 +204,6 @@ if ($debug) echo 'Completed in ' . ($timeEnd - $timeStart) . ' seconds' . PHP_EO
 /*
  * TODO: Get all the Campaigns
  */
+function getCampaigns($Client, $startDate, $endDate) {
+
+}
