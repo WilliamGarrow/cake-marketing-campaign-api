@@ -1,22 +1,33 @@
-# cake-marketing-campaign-api
+# CAKE Marketing Campaign Summary API
 CAKE Marketing Campaign Summary API and SubID Summary API performance on a campaign-by-campaign basis.
 
+#### Process
 ```php
-TODO: Pull the campaign summary API 
+Pull the campaign summary API 
 Example GET Request:
 http://demo.cakemarketing.com/api/5/reports.asmx/CampaignSummary?
-api_key=rYwtD48irQ0CiHRiuaB9abASO3e8O7GS&start_date=01-01-2016%20&
-end_date=01-31-2016%20&campaign_id=0%20&source_affiliate_id=1111667%20&
-subid_id=%20&site_offer_id=0%20&source_affiliate_tag_id=0%20&
-site_offer_tag_id=0%20&source_affiliate_manager_id=0%20&
-brand_advertiser_manager_id=0%20&event_id=0%20&event_type=macro_event_conversions
+api_key=rYwtD48irQ0CiHRiuaB9abASO3e8O7GS&
+start_date=01-01-2016%20&
+end_date=01-31-2016%20&campaign_id=0%20&
+source_affiliate_id=1111667%20&
+subid_id=%20&
+site_offer_id=0%20&source_affiliate_tag_id=0%20&
+site_offer_tag_id=0%20&
+source_affiliate_manager_id=0%20&
+brand_advertiser_manager_id=0%20&
+event_id=0%20&
+event_type=macro_event_conversions
 
 
-TODO: Pull the SubID Summary API 
+Pull the SubID Summary API 
 Example GET Request:
 http://demo.cakemarketing.com/api/1/reports.asmx/SubIDSummary?
-api_key=dNJFmId9rI&start_date=2015-08-01&end_date=2015-09-01&
-source_affiliate_id=1111667&site_offer_id=0&event_id=0&
+api_key=dNJFmId9rI&
+start_date=2015-08-01&
+end_date=2015-09-01&
+source_affiliate_id=1111667&
+site_offer_id=0&
+event_id=0&
 revenue_filter=conversions_and_events
 ```
 
