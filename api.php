@@ -25,7 +25,6 @@ use GuzzleHttp\Psr7\Request;
 
 $timeStart = microtime(true);
 
-
 $Client = new Client(['base_uri' => 'http://demo.cakemarketing.com/api/']);  // <YOUR BASE URI>
 
 if ($debug) echo "Fetching Campaigns" . PHP_EOL;
@@ -33,8 +32,6 @@ $Campaigns = getCampaigns($Client, $startDate, $endDate);
 // $Campaigns = array_slice((array)$Campaigns, 0, 100);
 if ($debug) echo 'Processing ' . count($Campaigns) . ' Campaigns' . PHP_EOL;
 
-
-// https://support.getcake.com/support/solutions/articles/13000003854-reports-campaignsummary-api-version-5
 $fname = "campaignData-{$startDate}.csv";
 $filename = "{$dataDirectory}/{$fname}";
 $csvHandle = fopen($filename, 'w');
@@ -61,17 +58,21 @@ fputcsv($csvHandle, $headerFields);
 if ($debug) echo "Adorning SubIdSummary data to Campaigns" . PHP_EOL;
 $iStart = microtime(true);
 
+
 /*
  * Sub Id Summary Request Generator
  * https://support.getcake.com/support/solutions/articles/5000688590-reports-subidsummary-api-version-1
  *
  * Example Request: GET
  * http://demo.cakemarketing.com/api/1/reports.asmx/SubIDSummary?
- * api_key=dNJFmId9rI&start_date=2015-08-01&end_date=2015-09-01&
- * source_affiliate_id=1111667&site_offer_id=0&event_id=0&
+ * api_key=dNJFmId9rI&
+ * start_date=2015-08-01&
+ * end_date=2015-09-01&
+ * source_affiliate_id=1111667&
+ * site_offer_id=0&
+ * event_id=0&
  * revenue_filter=conversions_and_events
  */
-
 
 $requestGenerator = function ($Campaigns, $startDate, $endDate) use ($debug) {
 
@@ -200,8 +201,11 @@ mail(
 $timeEnd = microtime(true);
 if ($debug) echo 'Completed in ' . ($timeEnd - $timeStart) . ' seconds' . PHP_EOL;
 
+
+// Get all the Campaigns
+
 /*
- * Get all the Campaigns
+ * Campaigns Request Generator
  * https://support.getcake.com/support/solutions/articles/13000003854-reports-campaignsummary-api-version-5
  *
  * Example Request: GET
