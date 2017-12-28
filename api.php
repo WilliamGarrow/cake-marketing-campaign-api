@@ -200,10 +200,60 @@ mail(
 $timeEnd = microtime(true);
 if ($debug) echo 'Completed in ' . ($timeEnd - $timeStart) . ' seconds' . PHP_EOL;
 
-
 /*
- * TODO: Get all the Campaigns
+ * Get all the Campaigns
+ * https://support.getcake.com/support/solutions/articles/13000003854-reports-campaignsummary-api-version-5
+ *
+ * Example Request: GET
+ * http://demo.cakemarketing.com/api/5/reports.asmx/CampaignSummary?
+ * api_key=rYwtD48irQ0CiHRiuaB9abASO3e8O7GS&
+ * start_date=01-01-2016%20&
+ * end_date=01-31-2016%20&campaign_id=0%20&
+ * source_affiliate_id=1111667%20&
+ * subid_id=%20&
+ * site_offer_id=0%20&source_affiliate_tag_id=0%20&
+ * site_offer_tag_id=0%20&
+ * source_affiliate_manager_id=0%20&
+ * brand_advertiser_manager_id=0%20&
+ * event_id=0%20&
+ * event_type=macro_event_conversions
  */
+
 function getCampaigns($Client, $startDate, $endDate) {
 
+    if ($debug) echo 'Grabbing Campaign Summaries' . PHP_EOL;
+    $Response = $Client->request('GET', '5/reports.asmx/CampaignSummary', [
+        'query' => [
+            'api_key'                       => API_KEY,
+            'start_date'                    => $startDate,
+            'end_date'                      => $endDate,
+            'campaign_id'                   => 0,
+            'source_affiliate_id'           => 0,
+            'subid_id'                      => '',
+            'site_offer_id'                 => 0,
+            'source_affiliate_tag_id'       => 0,
+            'site_offer_tag_id'             => 9,
+            'source_affiliate_manager_id'   => 0,
+            'brand_advertiser_manager_id'   => 0,
+            'event_id'                      => 0,
+            'event_type'                    => 'all',
+        ]
+    ]);
+
+    $CampaignsXML = new SimpleXMLElement((string)$Response->getBody());
+
+    $Campaigns = [];
+
+    foreach ($CampaignsXML->campaigns->campaign_summary as $Campaign) {
+        $Campaigns[] = (object)[
+            'CampaignID'         => (string)$Campaign->campaign->campaign_id,
+            'SourceAffiliateID'        => (string)$Campaign->affiliate->source_affiliate_id,
+            'SiteOfferID'            => (string)$Campaign->offer->site_offer_id,
+            'SourceAffiliateName'        => (string)$Campaign->affiliate->source_affiliate_name,
+            'SiteOfferName'          => (string)$Campaign->offer->site_offer_name,
+            'AccountManagerName' => (string)$Campaign->account_manager->account_manager_name,
+        ];
+    }
+
+    return $Campaigns;
 }
