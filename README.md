@@ -58,8 +58,19 @@ $debug = true;
 ```
 
 ### API Usage
+Call the **api.php** file with command line parameters:
+Start date: YYYY-MM-DD  -  example: 2018-01-04
+End date: YYYY-MM-DD  -  example: 2018-02-08
 
-<Call the api file with command line parameters:>
+Command line example:
+```sh
+$ php api.php --start=2018-01-04 --end=2018-02-08
+```
+If you don't set a start and end date, it will default to run for yesterday.
+Example:
+```sh
+$ php api.php
+```
 
 This application will generate a performance summary report from the Cake CampaignSummary API and the SubIDSummary API.
 
