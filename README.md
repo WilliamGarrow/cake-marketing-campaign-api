@@ -2,7 +2,7 @@
 CAKE Marketing Campaign Summary API and SubID Summary API performance on a campaign-by-campaign basis.
 
 #### Process
-```php
+```
 Pull the campaign summary API 
 Example GET Request:
 http://demo.cakemarketing.com/api/5/reports.asmx/CampaignSummary?
@@ -17,7 +17,6 @@ source_affiliate_manager_id=0%20&
 brand_advertiser_manager_id=0%20&
 event_id=0%20&
 event_type=macro_event_conversions
-
 
 Pull the SubID Summary API 
 Example GET Request:
@@ -62,8 +61,6 @@ $debug = true;
 
 <Call the api file with command line parameters:>
 
-
-#### Process
 This application will generate a performance summary report from the Cake CampaignSummary API and the SubIDSummary API.
 
 ```php
