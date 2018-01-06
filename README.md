@@ -91,3 +91,20 @@ This application will generate a performance summary report from the Cake Campai
     'Source Affiliate Manager ID'
     ...
 ```
+
+#### Output
+File output will be in the `data` folder
+- **data/**
+ 	* **campaignData-2018-01-05.csv** : Example .csv file
+
+Output example (truncated):
+
+
+| Campaign ID | Source Affiliate ID | Source Affiliate Name | Sub ID | Sub ID Name | Site Offer ID | Clicks | Click Thru Percentage | Macro Event Conversions | Cost | Average Cost | Source Affiliate Manager ID |
+|-------------|---------------------|-----------------------|--------|-------------|---------------|--------|-----------------------|-------------------------|------|--------------|-----------------------------|
+| 4XQ-65      | 108455              | Avavee                | 6284WV | Konklab     | 3.8.7         | 191    | 72                    | 62                      | 6.15 | 1.81         | 054w5fs424                  |
+| iZ6-65      | 716187              | Minyx                 | 5532WV | Fixflex     | 0.67          | 640    | 05                    | 87                      | 9.39 | 9.68         | 526y6ce180                  |
+| yjC-64      | 349519              | Realcube              | 3850UA | Ventosanzap | 5.13          | 703    | 40                    | 00                      | 9.06 | 7.14         | 469j6tr906                  |
+| Mh4-00      | 243817              | Demivee               | 0760JU | Temp        | 0.14          | 159    | 84                    | 25                      | 0.16 | 3.27         | 568b1qv626                  |
+| W4u-88      | 769166              | Wikivu                | 5277ZG | Bigtax      | 0.6.0         | 104    | 87                    | 62                      | 9.01 | 5.33         | 675a1oe490                  |
+| ...
